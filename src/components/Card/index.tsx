@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 
 import { styles } from "./styles";
 import { Deputado } from "@/types/Deputado";
+import Image from "../Image";
 
 type DeputadoProps = {
     deputado: Deputado,
@@ -14,10 +15,14 @@ export default function Card({ deputado }: DeputadoProps) {
 
         <View style={styles.container}>
 
-            <Text>Nome: {deputado.nome}</Text>
-            <Text>Sigla Partido: {deputado.siglaPartido}</Text>
-            <Text>Sigla UF: {deputado.siglaUf}</Text>
-            <Text>URL Foto: {deputado.urlFoto}</Text>
+            <Image
+                imageUrl={deputado.urlFoto}
+            />
+
+            <Text style={styles.title}>{deputado.nome}</Text>
+            <Text style={styles.description}>Partido: {deputado.siglaPartido}</Text>
+            <Text style={styles.description}>UF: {deputado.siglaUf}</Text>
+
 
         </View>
 
